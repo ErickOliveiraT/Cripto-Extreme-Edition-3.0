@@ -1,0 +1,22 @@
+{
+  "name": "cripto-extreme-edition-3.0",
+  "version": "1.0.0",
+  "description": "text encryptor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErickOliveiraT/Cripto-Extreme-Edition-3.0.git"
+  },
+  "author": "Erick de Oliveira Teixeira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ErickOliveiraT/Cripto-Extreme-Edition-3.0/issues"
+  },
+  "homepage": "https://github.com/ErickOliveiraT/Cripto-Extreme-Edition-3.0#readme",
+  "dependencies": {
+    "node-rsa": "^1.0.8"
+  }
+}
