@@ -4,7 +4,7 @@ module.exports = class Rotor {
     constructor(key, showing) {
         this.key = key;
         this.showing = showing;
-        this.pointed = new String();
+        this.pointed = ''
         this.sequence = this.build_sequence();
         this.spins_count = 0;
     }

@@ -12,6 +12,8 @@ function decrypt(enc, key) {
     return key.decrypt(enc, 'utf8');
 }
 
+module.exports = {getKeys, encrypt, decrypt}
+
 /* const key = getKeys(1024);
 const ent = 'lorem ipsum';
 const enc = encrypt(ent,key);
