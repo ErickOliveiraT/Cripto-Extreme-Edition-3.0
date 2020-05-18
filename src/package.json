@@ -18,7 +18,6 @@
   "homepage": "https://github.com/ErickOliveiraT/Cripto-Extreme-Edition-3.0#readme",
   "dependencies": {
     "fs": "0.0.1-security",
-    "jest-serializer": "^26.0.0",
     "node-rsa": "^1.0.8"
   }
 }

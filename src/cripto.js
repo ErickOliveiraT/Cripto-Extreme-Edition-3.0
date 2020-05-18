@@ -5,7 +5,6 @@ const keyManager = require('./keyManager');
 const cripto8 = require('./cripto8/cripto8');
 const rsa = require('./rsa/utils');
 
-//let ardvk = new ArDVK64();
 let keys = null;
 let arg = null;
 if (process.argv[2]) arg = process.argv[2];
