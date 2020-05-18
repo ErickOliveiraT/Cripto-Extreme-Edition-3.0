@@ -4,13 +4,13 @@ const rsa = require('./rsa/utils');
 const fs = require('fs');
 
 function buildKeys() {
+    for (let i = 3; i < 9; i++) if (!process.argv[i]) showKeyError();
     const r1k = Number(process.argv[3]);
     const r1s = process.argv[4].toLowerCase();
     const r2k = Number(process.argv[5]);
     const r2s = process.argv[6].toLowerCase();
     const r3k = Number(process.argv[7]);
     const r3s = process.argv[8].toLowerCase();
-    if (!r1k || !r1s || !r2k || !r2s || !r3k || !r3s) showKeyError();
     if (!isLetter(r1s) || !isLetter(r2s) || !isLetter(r3s)) showKeyError();
     const ardvk = new ArDVK64();
     const RSA_keys = rsa.getKeys(1024);
