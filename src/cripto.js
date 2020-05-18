@@ -5,7 +5,6 @@ const cripto8 = require('./cripto8/cripto8');
 const rsa = require('./rsa/utils');
 const fs = require('fs');
 
-//let plain = 'Lorem ipsum'
 let ardvk = new ArDVK64();
 let keys = null;
 let arg = null;
@@ -56,35 +55,6 @@ async function runDecrypt(input) {
     
     console.log(cripto8.decode(c8out, r1, r2, r3));
 }
-
-function sleep(milliseconds) {
-    return new Promise(resolve => setTimeout(resolve, milliseconds))
-}
-
-//console.log(loadKeys());
-
-//process.exit();
-
-/* plain = 'Nem adianta discutir. Todos sabem que o meu peido fede muito mais que seu!!'
-console.log('Plain text: ', plain);
-
-//Keys
-//console.log(keys);
-let RSA_keys = new NodeRSA();
-RSA_keys.importKey(keys.rsa_private, 'pkcs1-private-pem');
-ardvk = new ArDVK64(keys.pos);
-const r1k = keys.r1.key;
-const r1s = keys.r1.showing;
-const r2k = keys.r2.key;
-const r2s = keys.r2.showing;
-const r3k = keys.r3.key;
-const r3s = keys.r3.showing;
-
-//let enc = encrypt(plain);
-let enc = encrypt(plain);
-console.log('\nEncrypted: ', enc);
-let dec = decrypt(enc);
-console.log('\nDecrypted: ', dec); */
 
 async function loadKeys() {
     let data = fs.readFileSync('criptoKeys.key', 'utf8');
@@ -193,30 +163,4 @@ function showInputError() {
     console.log('Invalid input');
     console.log('Type "node cripto -h" for help');
     process.exit();
-}
-
-function encrypt(plain) {
-    const c8enc = encryptCripto8(plain);
-    const ArDVKenc = ardvk.encode(c8enc);
-    return rsa.encrypt(ArDVKenc, RSA_keys);
-}
-
-function decrypt(input) {
-    const ArDVKout = rsa.decrypt(input, RSA_keys);
-    const c8out = ardvk.decode(ArDVKout);
-    return decryptCripto8(c8out);
-}
-
-function decryptCripto8(ent) {
-    let r1 = new Cripto8_Rotor(r1k, r1s);
-    let r2 = new Cripto8_Rotor(r2k, r2s);
-    let r3 = new Cripto8_Rotor(r3k, r3s);
-    return cripto8.decode(ent, r1, r2, r3);
-}
-
-function encryptCripto8(ent) {
-    let r1 = new Cripto8_Rotor(r1k, r1s);
-    let r2 = new Cripto8_Rotor(r2k, r2s);
-    let r3 = new Cripto8_Rotor(r3k, r3s);
-    return cripto8.encode(ent, r1, r2, r3);
 }
