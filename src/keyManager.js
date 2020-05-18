@@ -44,6 +44,7 @@ function storeKeys(keys) {
 }
 
 async function loadKeys() {
+    if (!existKey()) showNoKeyError();
     let data = fs.readFileSync('criptoKeys.key', 'utf8');
     if (!data) return console.log('Error while loading keys');
     
@@ -96,8 +97,18 @@ async function loadKeys() {
     }
 }
 
+function existKey() {
+    return fs.existsSync('criptoKeys.key');
+}
+
 function showKeyError() {
-    console.log('Invalid key arguments');
+    console.log('Error: Invalid key arguments');
+    console.log('Type "node cripto -h" for help');
+    process.exit();
+}
+
+function showNoKeyError() {
+    console.log("Error: You don't have a key file. Please create one before");
     console.log('Type "node cripto -h" for help');
     process.exit();
 }

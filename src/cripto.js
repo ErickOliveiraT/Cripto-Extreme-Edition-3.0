@@ -77,7 +77,7 @@ function showHelp() {
 }
 
 function showInputError() {
-    console.log('Invalid input');
+    console.log('Error: Invalid input');
     console.log('Type "node cripto -h" for help');
     process.exit();
 }
